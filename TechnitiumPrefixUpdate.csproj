@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>TechnitiumPrefixUpdate</AssemblyName>
+    <RootNamespace>TechnitiumPrefixUpdate</RootNamespace>
+    <Authors>Maxi2710</Authors>
+    <Copyright>Copyright (C) 2026 Maxi2710</Copyright>
+    <Version>1.0.0</Version>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Maxi2710/TechnitiumPrefixUpdate</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>Dynamically updates AAAA and PTR records when the ISP's IPv6 prefix changes.</Description>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <!--
+    IMPORTANT: This app does not build stand-alone. It needs to reference the two DLLs that ship
+    with your Technitium DNS Server installation (same approach the official Technitium apps use):
+
+      DnsServerCore.ApplicationCommon.dll
+      TechnitiumLibrary.Net.dll
+
+    Both are located in the DNS server's installation folder, e.g.:
+      Linux:   /opt/technitium/dns/
+      Windows: C:\Program Files\Technitium\DNS Server\
+
+    Copy them next to this .csproj (into a "libs" folder) before building, or adjust the
+    HintPath below to point directly at your installation folder.
+  -->
+  <ItemGroup>
+    <Reference Include="DnsServerCore.ApplicationCommon">
+      <HintPath>libs/DnsServerCore.ApplicationCommon.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="TechnitiumLibrary.Net">
+      <HintPath>libs/TechnitiumLibrary.Net.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="dnsApp.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
