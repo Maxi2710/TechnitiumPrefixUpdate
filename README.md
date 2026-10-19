@@ -163,7 +163,7 @@ Requirements: [.NET 10 SDK](https://learn.microsoft.com/en-us/dotnet/core/instal
  
 2. Clone the repository:
 ```bash
-   git clone <repository-url>
+   git clone https://github.com/Maxi2710/TechnitiumPrefixUpdate
    cd TechnitiumPrefixUpdate
 ```
  
