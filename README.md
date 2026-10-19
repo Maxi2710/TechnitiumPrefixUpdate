@@ -182,5 +182,5 @@ Requirements: [.NET 10 SDK](https://learn.microsoft.com/en-us/dotnet/core/instal
 5. Create the zip for the app import:
 ```bash
    cd bin/Release
-   zip -j TechnitiumPrefixUpdate.zip TechnitiumPrefixUpdate.dll dnsApp.config
+   zip -j TechnitiumPrefixUpdate.zip TechnitiumPrefixUpdate.dll dnsApp.config TechnitiumPrefixUpdate.deps.json TechnitiumPrefixUpdate.pdb
 ```
